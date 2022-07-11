@@ -14,6 +14,7 @@ html(lang="ja")
 
     h2 投稿一覧
     each post in posts
+      h3 #{post.id} : ID:#{post.trackingCookie}
       p 送信日時: #{post.createdAt}
       p #{post.content}
       - let isDeletable = (user === post.postedBy)
