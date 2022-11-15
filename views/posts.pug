@@ -16,9 +16,9 @@ html(lang="ja")
     each post in posts
       p 送信日時: #{post.createdAt}
       p #{post.content}
-      - let isDeletable = (user === post.postedBy)
+      - let isDeletable = (user === post.postedBy) || user === 'admin' ? true : false;
       if isDeletable
         form(method="post" action="/posts/delete")
           input(type="hidden" name="id" value=post.id)
-          button(type="submit") 削除
+          button(type="submit" onclick="return confirm('削除後は復元できません。よろしいですか？')") 削除
       hr
