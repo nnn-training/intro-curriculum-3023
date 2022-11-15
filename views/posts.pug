@@ -18,7 +18,16 @@ html(lang="ja")
       p #{post.content}
       - let isDeletable = (user === post.postedBy)
       if isDeletable
-        form(method="post" action="/posts/delete")
+        form(method="post" action="/posts/delete" class="delete_form")
           input(type="hidden" name="id" value=post.id)
           button(type="submit") 削除
       hr
+    script
+      |  const forms = document.getElementsByClassName('delete_form');
+      |  for (const form of forms) {
+      |    form.onsubmit = (e) => {
+      |      if(!confirm('削除してよろしいですか？')) {
+      |        e.preventDefault();
+      |      }
+      |    }
+      |  }
