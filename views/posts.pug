@@ -4,7 +4,9 @@ html(lang="ja")
     meta(charset="UTF-8")
     title NNチャット
   body
-    h1 NNチャット
+    h1 
+      img(src="https://th.bing.com/th/id/OIP.gMnRwt5Pm18szS-nt1wjOgAAAA?pid=ImgDet&rs=1", alt="" width="40" height="40")
+      span  チャット
     a(href="/logout") ログアウト
     form(method="post" action="/posts")
       div
@@ -12,6 +14,7 @@ html(lang="ja")
       div
         button(type="submit") 送信
     h2 投稿一覧
+    p ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
     each post in posts
       p 送信日時: #{post.createdAt}
       p #{post.content}
@@ -19,5 +22,5 @@ html(lang="ja")
       if isDeletable
         form(method="post" action="/posts/delete")
           input(type="hidden" name="id" value=post.id)
-          button(type="submit") 削除
+          button(type="submit" id="button") 削除
       hr
