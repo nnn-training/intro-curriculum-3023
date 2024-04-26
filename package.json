@@ -12,5 +12,6 @@
     "http-auth": "4.2.0",
     "prisma": "4.11.0",
     "pug": "3.0.2"
-  }
+  },
+  "repository": "git@github.com:ryoIzu/intro-curriculum-3023.git"
 }
