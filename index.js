@@ -10,6 +10,11 @@ const basic = auth.basic({
 
 const server = http.createServer(basic.check((req, res) => {
     router.route(req, res);
+    console.info(
+  `削除されました: user: ${req.user}, ` +
+    `remoteAddress: ${req.socket.remoteAddress}, ` +
+    `userAgent: ${req.headers['user-agent']} `
+);
   }))
   .on('error', e => {
     console.error('Server Error', e);
